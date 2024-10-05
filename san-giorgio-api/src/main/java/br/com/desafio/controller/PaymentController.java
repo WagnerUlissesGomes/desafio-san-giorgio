@@ -1,7 +1,6 @@
 package br.com.desafio.controller;
 
 
-import br.com.desafio.domain.usecase.ConfirmPaymentUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
