@@ -1,20 +1,14 @@
 package br.com.desafio.controller;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Payment {
-    @JsonProperty("client_id")
-    private String clientId;
-    @JsonProperty("payment_items")
-    private List<PaymentItem> paymentItems;
+
+    private String billingCode;
+    private BigDecimal paymentValue;
+    private String paymentStatus;
+
 }

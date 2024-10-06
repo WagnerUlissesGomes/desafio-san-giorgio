@@ -9,10 +9,10 @@ import java.net.URI;
 @Configuration
 public class AwsConfig {
 
-    @Bean
-    public SqsClient sqsClient() {
-        return SqsClient.builder()
-                .endpointOverride(URI.create("http://localhost:4566"))
-                .build();
-    }
+//    @Bean
+//    public SqsClient sqsClient() {
+//        return SqsClient.builder()
+//                .endpointOverride(URI.create("http://localhost:4566"))
+//                .build();
+//    }
 }

@@ -5,6 +5,8 @@ plugins {
 group = 'br.com.desafio'
 version = '0.0.1-SNAPSHOT'
 
+compileJava.options.encoding = "UTF-8"
+
 repositories {
     mavenCentral()
 }
@@ -13,7 +15,7 @@ dependencies {
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
 
     compileOnly "org.projectlombok:lombok:1.18.28"
     annotationProcessor "org.projectlombok:lombok:1.18.28"
@@ -29,6 +31,7 @@ dependencies {
 
     implementation 'software.amazon.awssdk:sqs:2.20.0'
     implementation 'software.amazon.awssdk:utils:2.20.0'
+
 }
 
 test {

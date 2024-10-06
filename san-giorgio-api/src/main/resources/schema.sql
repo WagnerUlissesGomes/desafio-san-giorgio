@@ -9,7 +9,7 @@ create table tb_payment (
     seller_id int not null,
     billing_code varchar(50) not null,
     original_value number not null,
-    amount_paid number not null,
+    amount_paid number null,
     payment_status varchar(50) null,
     primary key (payment_id)
 );

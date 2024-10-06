@@ -1,12 +1,16 @@
 package br.com.desafio.controller;
 
 
+import br.com.desafio.domain.usecase.PaymentUseCase;
+import br.com.desafio.domain.usecase.ProcessPaymentUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.SendMessageRequest;
@@ -15,12 +19,12 @@ import software.amazon.awssdk.services.sqs.model.SendMessageRequest;
 @RestController
 public class PaymentController {
 
-    //private final ConfirmPaymentUseCase confirmPaymentUseCase;
+    @Autowired
+    private ProcessPaymentUseCase useCase;
 
-    @PutMapping(path = "/api/payment")
-    public ResponseEntity<Payment> setPayment(Payment request) {
-
-
-        return ResponseEntity.status(HttpStatus.OK).body(Payment.builder().build());
+    @PostMapping(path = "/api/payment")
+    public ResponseEntity<Operation> processPayment(@RequestBody Operation operation) {
+        return ResponseEntity.ok().body(useCase.process(operation));
     }
+
 }
