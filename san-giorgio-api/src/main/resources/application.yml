@@ -13,3 +13,12 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+
+aws:
+  sqs:
+    endpoint: http://localhost:4566
+    queue:
+      partial: http://sqs.us-east-2.localhost.localstack.cloud:4566/000000000000/partial-queue
+      excess: http://sqs.us-east-2.localhost.localstack.cloud:4566/000000000000/excess-queue
+      total: http://sqs.us-east-2.localhost.localstack.cloud:4566/000000000000/total-queue
+  region: us-east-2

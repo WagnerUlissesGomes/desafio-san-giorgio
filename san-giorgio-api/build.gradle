@@ -26,6 +26,9 @@ dependencies {
 
     implementation 'org.mapstruct:mapstruct:1.6.2'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'
+
+    implementation 'software.amazon.awssdk:sqs:2.20.0'
+    implementation 'software.amazon.awssdk:utils:2.20.0'
 }
 
 test {
