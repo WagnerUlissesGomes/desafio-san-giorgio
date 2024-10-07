@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.SendMessageRequest;
 
-//@Component
+@Component
 public class AwsSQS {
 
-    @Autowired
-    private SqsClient sqsClient;
+//    @Autowired
+//    private SqsClient sqsClient;
 
     @Value("${aws.sqs.queue.partial}")
     private String partialQueue;
@@ -24,10 +24,10 @@ public class AwsSQS {
     private String excessQueue;
 
     public void sendToQueue(PaymentModel payment) {
-        sqsClient.sendMessage(SendMessageRequest.builder()
-                .queueUrl(getUrl(payment.getStatus()))
-                .messageBody(payment.toString())
-                .build());
+//        sqsClient.sendMessage(SendMessageRequest.builder()
+//                .queueUrl(getUrl(payment.getStatus()))
+//                .messageBody(payment.toString())
+//                .build());
     }
 
     private String getUrl(PaymentStatus status) {

@@ -20,8 +20,8 @@ public class ProcessPaymentUseCaseImpl implements ProcessPaymentUseCase {
     @Autowired
     private PaymentUseCase paymentUseCase;
 
-//    @Autowired
-//    private AwsSQS awsSQS;
+    @Autowired
+    private AwsSQS awsSQS;
 
     @Override
     public Operation process(Operation operation) {
@@ -41,7 +41,7 @@ public class ProcessPaymentUseCaseImpl implements ProcessPaymentUseCase {
             paymentModel.setStatus(status);
             paymentModel.setAmountPaid(payment.getPaymentValue());
             paymentUseCase.save(paymentModel);
-            //awsSQS.sendToQueue(paymentModel);
+            awsSQS.sendToQueue(paymentModel);
         });
 
         return operation;
